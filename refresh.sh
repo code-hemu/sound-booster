@@ -68,6 +68,7 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
         fs.mkdirSync('src/css', { recursive: true });
         fs.mkdirSync('src/manifest', { recursive: true });
         fs.mkdirSync('src/assets', { recursive: true });
+        fs.mkdirSync('src/_locales', { recursive: true });
 
         fs.mkdirSync('config', { recursive: true });
 
