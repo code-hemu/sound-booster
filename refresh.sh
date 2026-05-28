@@ -61,6 +61,7 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
         // Remove existing folders/files
         fs.rmSync('src', { recursive: true, force: true });
         fs.rmSync('config', { recursive: true, force: true });
+        fs.rmSync('platform', { recursive: true, force: true });
 
         // Create folders
         fs.mkdirSync('src/js', { recursive: true });
@@ -72,6 +73,11 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
 
         fs.mkdirSync('config', { recursive: true });
 
+        fs.mkdirSync('platform/chrome', { recursive: true });
+        fs.mkdirSync('platform/edge', { recursive: true });
+        fs.mkdirSync('platform/naver', { recursive: true });
+        fs.mkdirSync('platform/opera', { recursive: true });
+
         // Create files
         fs.writeFileSync('src/js/index.js', '');
         fs.writeFileSync('src/html/index.html', '');
@@ -82,6 +88,11 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
         fs.writeFileSync('config/edge.js', '');
         fs.writeFileSync('config/naver.js', '');
         fs.writeFileSync('config/opera.js', '');
+
+        fs.writeFileSync('platform/chrome/platform.js', '');
+        fs.writeFileSync('platform/edge/platform.js', '');
+        fs.writeFileSync('platform/naver/platform.js', '');
+        fs.writeFileSync('platform/opera/platform.js', '');
 
         console.log('Project structure recreated successfully');
     "
