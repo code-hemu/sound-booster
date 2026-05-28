@@ -47,36 +47,55 @@ fi
 
 # =========================
 # Create folder structure using Node.js
+# Remove existing folders/files first
 # =========================
 
 if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
 
     echo ""
-    echo "Creating extension project structure using Node.js..."
+    echo "Recreating extension project structure using Node.js..."
 
     node -e "
         const fs = require('fs');
 
-        fs.mkdirSync('src', { recursive: true });
+        // Remove existing folders/files
+        fs.rmSync('src', { recursive: true, force: true });
+        fs.rmSync('config', { recursive: true, force: true });
+
+        // Create folders
+        fs.mkdirSync('src/js', { recursive: true });
+        fs.mkdirSync('src/html', { recursive: true });
+        fs.mkdirSync('src/scss', { recursive: true });
+        fs.mkdirSync('src/manifest', { recursive: true });
+        fs.mkdirSync('src/assets', { recursive: true });
+
         fs.mkdirSync('config', { recursive: true });
 
-        fs.writeFileSync('src/app.js', '');
-        fs.writeFileSync('src/index.html', '');
-        fs.writeFileSync('src/style.scss', '');
+        // Create files
+        fs.writeFileSync('src/js/index.js', '');
+        fs.writeFileSync('src/html/index.html', '');
+        fs.writeFileSync('src/scss/style.scss', '');
+        fs.writeFileSync('src/manifest/manifest.json', '');
 
         fs.writeFileSync('config/chrome.js', '');
         fs.writeFileSync('config/edge.js', '');
+        fs.writeFileSync('config/naver.js', '');
+        fs.writeFileSync('config/opera.js', '');
 
-        console.log('Created files successfully');
+        console.log('Project structure recreated successfully');
     "
 
     echo ""
-    echo "Created files:"
-    echo "src/app.js"
-    echo "src/index.html"
-    echo "src/style.scss"
+    echo "Created structure:"
+    echo "src/js/index.js"
+    echo "src/html/index.html"
+    echo "src/scss/style.scss"
+    echo "src/manifest/manifest.json"
+    echo "src/assets/"
     echo "config/chrome.js"
     echo "config/edge.js"
+    echo "config/naver.js"
+    echo "config/opera.js"
 
 fi
 
