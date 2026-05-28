@@ -65,7 +65,7 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
         // Create folders
         fs.mkdirSync('src/js', { recursive: true });
         fs.mkdirSync('src/html', { recursive: true });
-        fs.mkdirSync('src/scss', { recursive: true });
+        fs.mkdirSync('src/css', { recursive: true });
         fs.mkdirSync('src/manifest', { recursive: true });
         fs.mkdirSync('src/assets', { recursive: true });
 
@@ -74,7 +74,7 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
         // Create files
         fs.writeFileSync('src/js/index.js', '');
         fs.writeFileSync('src/html/index.html', '');
-        fs.writeFileSync('src/scss/style.scss', '');
+        fs.writeFileSync('src/css/style.css', '');
         fs.writeFileSync('src/manifest/manifest.json', '');
 
         fs.writeFileSync('config/chrome.js', '');
@@ -89,7 +89,7 @@ if [[ "$CREATE_STRUCTURE" =~ ^[Yy]$ ]]; then
     echo "Created structure:"
     echo "src/js/index.js"
     echo "src/html/index.html"
-    echo "src/scss/style.scss"
+    echo "src/css/style.css"
     echo "src/manifest/manifest.json"
     echo "src/assets/"
     echo "config/chrome.js"
